@@ -37,7 +37,7 @@ body {
 }
 
 .shadow {
-    filter: drop-shadow(0px 0px 2px hsl(0deg 0% 0% / 0.38));
+    filter: drop-shadow(0px 0px 1px hsl(0deg 0% 0% / 0.38));
 }
 
 nav {
@@ -79,6 +79,7 @@ main .card-container {
 main .card-container .card {
     background-color: #FFFBFB;
     padding: 1rem;
+    border-radius: 5px;
     text-align: center;
     display: grid;
     gap: 1rem;
