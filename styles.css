@@ -47,7 +47,11 @@ nav {
     margin-bottom: 4rem;
 }
 
-.add-container {
+main {
+    padding: 0 5rem;
+}
+
+main .add-container {
     display: flex;
     justify-content: center;
     margin-bottom: 4rem;
@@ -55,13 +59,51 @@ nav {
     font-weight: 600;
 }
 
-.add-btn {
+main .add-btn {
     padding: .5rem 1rem;
     border-radius: 10px;
-    transition: 0.2s;
+    transition: background-color 0.2s;
 }
 
-.add-btn:hover {
-    transition: 0.2s;
+main .add-btn:hover {
     background-color: hsl(0, 0%, 0%, 0.10);
+}
+
+main .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+main .card-container .card {
+    background-color: #FFFBFB;
+    padding: 1rem;
+    text-align: center;
+    display: grid;
+    gap: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+main .card-container .card .title {
+    font-style: italic;
+}
+
+main .card-container .card button {
+    border: 0;
+    border-radius: 10px;
+    padding: .7rem;
+    transition: filter 0.2s;
+}
+
+main .card-container .card button:hover {
+    filter: brightness(90%);
+}
+
+main .card-container .card .status[data-read=true] {
+    background-color: #8FE68D;
+}
+
+main .card-container .card .status[data-read=false] {
+    background-color: #FF9C9C;
 }
