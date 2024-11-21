@@ -29,3 +29,39 @@ ul {
     list-style: none;
     padding-inline-start: 0;
 }
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #F0EEF1;
+}
+
+.shadow {
+    filter: drop-shadow(0px 0px 2px hsl(0deg 0% 0% / 0.38));
+}
+
+nav {
+    padding: 1.5rem 5rem;
+    background-color: #FFFBFB;
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 4rem;
+}
+
+.add-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.add-btn {
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.add-btn:hover {
+    transition: 0.2s;
+    background-color: hsl(0, 0%, 0%, 0.10);
+}
