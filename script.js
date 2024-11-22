@@ -3,6 +3,7 @@ const cardContainer = document.querySelector(".card-container");
 const addBtn = document.querySelector(".add-btn");
 const statusBtn = document.querySelector(".status");
 const removeBtn = document.querySelector(".remove");
+const dialog = document.querySelector("dialog");
 
 function Book(title, author, pages, status) {
     this.title = title;
@@ -38,3 +39,5 @@ function loadBooks() {
         cardContainer.append(card);
     });
 }
+
+addBtn.addEventListener("click", () => dialog.showModal());
