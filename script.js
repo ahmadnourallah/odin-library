@@ -42,9 +42,14 @@ function loadBooks() {
     });
 }
 
-addBtn.addEventListener("click", () => dialog.showModal());
+addBtn.addEventListener("click", () => {
+    dialogForm.reset();
+    dialog.showModal();
+});
+
 dialog.addEventListener("click", () => dialog.close());
 dialogWrapper.addEventListener("click", event => event.stopPropagation());
+
 dialogForm.addEventListener("submit", event => {
     addBook(event.target.title.value, event.target.author.value,
         event.target.pages.value, event.target.status.checked);
