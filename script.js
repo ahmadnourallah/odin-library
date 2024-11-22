@@ -74,7 +74,16 @@ addBtn.addEventListener("click", () => {
     dialog.showModal();
 });
 
-dialog.addEventListener("click", () => dialog.close());
+dialog.addEventListener("click", () => {
+    dialog.classList.add("hide");
+
+    dialog.addEventListener("animationend", function removeAnimation() {
+        dialog.classList.remove("hide");
+        dialog.close();
+        dialog.removeEventListener("animationend", removeAnimation);
+    });
+});
+
 dialogWrapper.addEventListener("click", event => event.stopPropagation());
 
 dialogForm.addEventListener("submit", event => {

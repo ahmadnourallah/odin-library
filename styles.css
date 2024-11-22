@@ -120,7 +120,20 @@ dialog {
 dialog[open] {
     animation: popup 0.2s;
 }
-  
+
+dialog.hide {
+    animation: popout 0.2s;
+}
+
+@keyframes popout {
+    0%{
+      transform: scale(1);
+    }
+    100%{
+      transform: scale(0);
+    }
+}
+
 @keyframes popup {
     0%{
       transform: scale(0);
