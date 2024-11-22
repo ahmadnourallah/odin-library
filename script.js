@@ -51,6 +51,13 @@ function loadBooks() {
         event.target.dataset["read"] = book.status;
         event.target.textContent = book.status ? "Read" : "Not read";
     }));
+
+    removeBtns.forEach(btn => btn.addEventListener("click", event => {
+        let card = event.target.parentElement;
+        
+        myLibrary.pop(card.dataset.index);
+        card.remove();
+    }));
 }
 
 addBtn.addEventListener("click", () => {
