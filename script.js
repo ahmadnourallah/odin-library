@@ -1,4 +1,8 @@
 const myLibrary = [];
+const cardContainer = document.querySelector(".card-container");
+const addBtn = document.querySelector(".add-btn");
+const statusBtn = document.querySelector(".status");
+const removeBtn = document.querySelector(".remove");
 
 function Book(title, author, pages, status) {
     this.title = title;
