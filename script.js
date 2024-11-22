@@ -22,6 +22,7 @@ function addBook(title, author, pages, status) {
 }
 
 function loadBooks() {
+    cardContainer.replaceChildren();
     myLibrary.forEach((book, index) => {
         let card = document.createElement("div");
         card.classList.add("card", "shadow");
