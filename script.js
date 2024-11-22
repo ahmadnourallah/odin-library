@@ -4,6 +4,7 @@ const addBtn = document.querySelector(".add-btn");
 const statusBtn = document.querySelector(".status");
 const removeBtn = document.querySelector(".remove");
 const dialog = document.querySelector("dialog");
+const dialogWrapper = document.querySelector("dialog .wrapper");
 
 function Book(title, author, pages, status) {
     this.title = title;
@@ -41,3 +42,5 @@ function loadBooks() {
 }
 
 addBtn.addEventListener("click", () => dialog.showModal());
+dialog.addEventListener("click", () => dialog.close());
+dialogWrapper.addEventListener("click", event => event.stopPropagation());

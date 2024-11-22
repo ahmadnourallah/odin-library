@@ -119,7 +119,7 @@ dialog {
 
 dialog[open] {
     animation: popup 0.2s;
-  }
+}
   
 @keyframes popup {
     0%{
@@ -134,7 +134,7 @@ dialog::backdrop {
     background-color: hsl(0, 0%, 0%, 0.40);
 }
 
-dialog > *:not(:last-child) {
+dialog .wrapper > *:not(:last-child) {
     margin-bottom: 1rem;
 }
 
