@@ -1,11 +1,12 @@
 const myLibrary = [];
 const cardContainer = document.querySelector(".card-container");
 const addBtn = document.querySelector(".add-btn");
-const statusBtn = document.querySelector(".status");
-const removeBtn = document.querySelector(".remove");
 const dialog = document.querySelector("dialog");
 const dialogWrapper = document.querySelector("dialog .wrapper");
 const dialogForm = document.querySelector("dialog form");
+
+let statusBtns;
+let removeBtns;
 
 function Book(title, author, pages, status) {
     this.title = title;
@@ -40,6 +41,16 @@ function loadBooks() {
 
         cardContainer.append(card);
     });
+
+    statusBtns = document.querySelectorAll(".status");
+    removeBtns = document.querySelectorAll(".remove");
+
+    statusBtns.forEach(btn => btn.addEventListener("click", event => {
+        let book = myLibrary[event.target.parentElement.dataset.index];
+        book.toggleStatus();
+        event.target.dataset["read"] = book.status;
+        event.target.textContent = book.status ? "Read" : "Not read";
+    }));
 }
 
 addBtn.addEventListener("click", () => {
@@ -53,4 +64,4 @@ dialogWrapper.addEventListener("click", event => event.stopPropagation());
 dialogForm.addEventListener("submit", event => {
     addBook(event.target.title.value, event.target.author.value,
         event.target.pages.value, event.target.status.checked);
-})
+});
