@@ -72,3 +72,5 @@ dialogForm.addEventListener("submit", event => {
     addBook(event.target.title.value, event.target.author.value,
         event.target.pages.value, event.target.status.checked);
 });
+
+loadBooks();
