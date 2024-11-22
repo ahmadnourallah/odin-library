@@ -1,4 +1,9 @@
-const myLibrary = [];
+let library = [];
+
+if (localStorage.getItem("user.library")) {
+    library = JSON.parse(localStorage.getItem("user.library"));    
+}
+
 const cardContainer = document.querySelector(".card-container");
 const addBtn = document.querySelector(".add-btn");
 const dialog = document.querySelector("dialog");
@@ -15,19 +20,21 @@ function Book(title, author, pages, status) {
     this.status = status
 }
 
-Book.prototype.toggleStatus = function () {
-    this.status = !this.status;
+function updateLocalLibrary() {
+    localStorage.setItem("user.library", JSON.stringify(library));
 }
 
 function addBook(title, author, pages, status) {
     let book = new Book(title, author, pages, status);
-    myLibrary.push(book);
+    library.push(book);
+    updateLocalLibrary();
     loadBooks();
 }
 
 function loadBooks() {
     cardContainer.replaceChildren();
-    myLibrary.forEach((book, index) => {
+
+    library.forEach((book, index) => {
         let card = document.createElement("div");
         card.classList.add("card", "shadow");
         card.dataset.index = index;
@@ -46,8 +53,9 @@ function loadBooks() {
     removeBtns = document.querySelectorAll(".remove");
 
     statusBtns.forEach(btn => btn.addEventListener("click", event => {
-        let book = myLibrary[event.target.parentElement.dataset.index];
-        book.toggleStatus();
+        let book = library[event.target.parentElement.dataset.index];
+        book.status = !book.status;
+        updateLocalLibrary();
         event.target.dataset["read"] = book.status;
         event.target.textContent = book.status ? "Read" : "Not read";
     }));
@@ -55,7 +63,8 @@ function loadBooks() {
     removeBtns.forEach(btn => btn.addEventListener("click", event => {
         let card = event.target.parentElement;
         
-        myLibrary.pop(card.dataset.index);
+        library.pop(card.dataset.index);
+        updateLocalLibrary();
         card.remove();
     }));
 }
